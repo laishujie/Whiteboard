@@ -18,9 +18,25 @@ void BgShader::draw() {
     glUseProgram(m_ProgramObj);
     glClearColor(1.0, 1.0, 1.0, 1.0);
     glClear(GL_STENCIL_BUFFER_BIT | GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    //切换到原来默认缓冲区
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
+
+void BgShader::testDraw1() {
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glUseProgram(m_ProgramObj);
+    glViewport(0, 0, 200, 200);
+
+    glClearColor(1.0, 0.0, 0.0, 1.0);
+    glClear(GL_STENCIL_BUFFER_BIT | GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void BgShader::testDraw2() {
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glViewport(100, 300, 200, 200);
+    glUseProgram(m_ProgramObj);
+    glClearColor(0.0, 1.0, 0.0, 1.0);
+    glClear(GL_STENCIL_BUFFER_BIT | GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
 
 void BgShader::genBgTexture(int drawWidth, int drawHeight) {
     //生成纹理
@@ -40,6 +56,11 @@ void BgShader::genBgTexture(int drawWidth, int drawHeight) {
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, bgTextureId, 0);
     //解绑兄弟
     glBindTexture(GL_TEXTURE_2D, 0);
+
+
+
+
+
 
     //LOGE("11111","glGenTextures %d ",bgTextureId)
 }
@@ -94,7 +115,7 @@ void BgShader::Init() {
 
 void BgShader::OnSurfaceChanged(int width, int height) {
     glViewport(0, 0, width, height);
-    genBgTexture(width,height);
+    genBgTexture(width, height);
 }
 
 

@@ -32,6 +32,7 @@ GLuint GLVAO::AddVertex2D(float *data, int vertexCount, GLuint layout) {
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
+
     glBufferData(GL_ARRAY_BUFFER, vertexCount * 2 * sizeof(float), data, GL_DYNAMIC_DRAW);
 
     glVertexAttribPointer(layout, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (GLvoid *) 0);
@@ -51,13 +52,14 @@ void GLVAO::updateVertex2D(GLuint updateFbo, float *data, int vertexCount, GLuin
    // LOGE("11111", "data %f vertexCount %d updateFbo %d", *data, vertexCount, updateFbo);
 }
 
-GLuint GLVAO::setVertex2D(GLuint fbo, float *data, int vertexCount, GLuint layout) {
+GLuint GLVAO::setVertex2D(GLuint& fbo, float *data, int vertexCount, GLuint layout) {
+    //LOGE("11111","FBO %d",fbo)
     if (fbo == 0) {
-        return AddVertex2D(data, vertexCount, layout);
+        fbo =  AddVertex2D(data, vertexCount, layout);
     } else {
         updateVertex2D(fbo, data, vertexCount, layout);
-        return fbo;
     }
+    return fbo;
 }
 
 

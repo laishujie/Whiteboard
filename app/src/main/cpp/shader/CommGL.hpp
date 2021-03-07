@@ -57,7 +57,7 @@ public:
 
     void updateVertex2D(GLuint updateFbo, float *data, int vertexCount, GLuint layout);
 
-    GLuint setVertex2D(GLuint fbo, float *data, int vertexCount, GLuint layout);
+    GLuint setVertex2D(GLuint& fbo, float *data, int vertexCount, GLuint layout);
 
 private:
     GLuint vao = 0;

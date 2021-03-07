@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hex_color_width_bigger">110dp</dimen>  
+	<dimen name="hex_color_width_smaller">90dp</dimen> 	
+</resources>

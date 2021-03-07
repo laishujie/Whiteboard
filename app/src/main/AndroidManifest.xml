@@ -2,14 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lai.whiteboard">
 
-    <application
-        android:allowBackup="true"
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application xmlns:tool="http://schemas.android.com/tools"
         android:icon="@mipmap/ic_launcher"
+        android:allowBackup="false"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".pen.page.WhiteboardActivity"/>
+        android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage="true"
+        tool:ignore="LockedOrientationActivity">
+
+        <activity android:name=".TestTextureActivity" />
+
+        <activity
+            android:name=".pen.page.WhiteboardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Fullscreen" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

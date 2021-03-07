@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ACAAAA"
     tools:context=".pen.page.WhiteboardActivity">
 
 
@@ -12,28 +13,156 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="清空"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_undo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="撤销"
-        app:layout_constraintEnd_toStartOf="@id/btn_redo"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.lai.whiteboard.widget.TouchView
+        android:id="@+id/touch_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/white_view"
+        app:layout_constraintEnd_toEndOf="@id/white_view"
+        app:layout_constraintStart_toStartOf="@id/white_view"
+        app:layout_constraintTop_toTopOf="@id/white_view" />
 
 
-    <Button
-        android:id="@+id/btn_redo"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_reset"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/share_image_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_eraser_all"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_color" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="返回"
+        android:text="@string/reset"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/iv_reset"
+        app:layout_constraintEnd_toEndOf="@id/iv_reset"
+        app:layout_constraintStart_toStartOf="@id/iv_reset" />
+
+
+    <ImageView
+        android:id="@+id/iv_undo"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/share_image_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_undo_no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/iv_redo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/undo"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/iv_undo"
+        app:layout_constraintEnd_toEndOf="@id/iv_undo"
+        app:layout_constraintStart_toStartOf="@id/iv_undo" />
+
+    <ImageView
+        android:id="@+id/iv_redo"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/share_image_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_redo_no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/redo"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/iv_redo"
+        app:layout_constraintEnd_toEndOf="@id/iv_redo"
+        app:layout_constraintStart_toStartOf="@id/iv_redo" />
+
+
+    <ImageView
+        android:id="@+id/iv_pen"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/share_image_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_pen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/iv_triangle"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="9dp"
+        android:src="@drawable/ic_triangle"
+        app:layout_constraintBottom_toBottomOf="@id/iv_pen"
+        app:layout_constraintEnd_toEndOf="@id/iv_pen" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pen"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/iv_pen"
+        app:layout_constraintEnd_toEndOf="@id/iv_pen"
+        app:layout_constraintStart_toStartOf="@id/iv_pen" />
+
+    <ImageView
+        android:id="@+id/iv_color"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/share_image_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_palettes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_pen" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/color"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/iv_color"
+        app:layout_constraintEnd_toEndOf="@id/iv_color"
+        app:layout_constraintStart_toStartOf="@id/iv_color" />
+
+    <TextView
+        android:id="@+id/iv_save"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/share_image_selector"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_save"
+        android:focusable="true"
+        android:gravity="center"
+        android:scaleType="centerInside"
+        android:text="保存"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

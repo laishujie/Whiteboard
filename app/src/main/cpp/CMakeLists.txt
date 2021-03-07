@@ -15,6 +15,7 @@ cmake_minimum_required(VERSION 3.4.1)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 
 include_directories(
+        glm
         egl
         util
 )
@@ -63,5 +64,6 @@ target_link_libraries( # Specifies the target library.
         EGL
         GLESv3
         -landroid
-        jnigraphics )
+        jnigraphics
+        )
 

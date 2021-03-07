@@ -9,26 +9,55 @@
 #include <ImageInfo.h>
 #include "ShaderBase.h"
 
+#include <gtc/matrix_transform.hpp>
+#include <gtc/type_ptr.inl>
+#include <ext.hpp>
+
 class PaintShader : public ShaderBase {
+/*
+private:
+    float textureRotate= 45.0f;*/
+
 public:
+    PaintShader() : brushTextureId(0), paintTextureId(0), paintVbo(0), defaultVertexCount(0),
+                    brushImageInfo(new BrushInfo()) {};
+
     ~PaintShader();
+
     void draw();
+
     void OnSurfaceChanged(int width, int height);
+
     void Init();
+
     void onDestroy();
+
     void glClearPaint();
 
+    void glUpdatePoints(float *points, int vertexCount, float textureRotate, bool isClear);
 
-    void glUpdatePoints(float *points, int vertexCount);
-    void glSetBrush(ImageInfo *brushImageInfo);
+    void glSetBrush(ImageInfo *brushImageInfo,
+                    float brushWidth,
+                    bool isTextureRotate,
+                    BrushInfo::OutType outType
+    );
 
+    void setPaintColor(float A,
+                       float R,
+                       float G,
+                       float B);
 
-    GLuint textureId=0;
+    GLuint brushTextureId;
     GLuint paintTextureId;
     GLuint frameBuffer;
-    GLuint paintFbo;
-    int defaultVertexCount = 0;
-    ImageInfo *brushImageInfo = nullptr;
+    GLuint paintVbo;
+    int defaultVertexCount;
+    BrushInfo *brushImageInfo;
+
+
+
+    //glm::mat4 matrix;
+
 
     void genPaintTexture(int drawWidth, int drawHeight);
 };

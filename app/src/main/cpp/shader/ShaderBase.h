@@ -5,7 +5,10 @@
 #ifndef OPENGLDEMO_GLBASE_H
 #define OPENGLDEMO_GLBASE_H
 
+//#include "logUtil.h"
 #include "CommGL.hpp"
+
+#define MATH_PI 3.1415926535897932384626433832802
 
 class ShaderBase {
 public:
@@ -19,7 +22,7 @@ public:
             delete glProgram;
             glProgram= nullptr;
         }
-        LOGE("11111","onDestroy ShaderBase")
+       //LOGE("11111","onDestroy ShaderBase")
     }
 
     virtual void Init() = 0;

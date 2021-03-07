@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <View
+        android:id="@+id/view_bg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/brush_white_10"
+        app:layout_constraintBottom_toBottomOf="@id/last_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_texture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="纹理"
+        android:textColor="#333333"
+        app:layout_constraintStart_toStartOf="@+id/rv_list"
+        app:layout_constraintTop_toTopOf="@id/view_bg" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="@id/view_bg"
+        app:layout_constraintStart_toStartOf="@id/view_bg"
+        app:layout_constraintTop_toBottomOf="@id/tv_texture" />
+
+    <TextView
+        android:id="@+id/tv_width"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="宽度: 15"
+        android:textColor="#333333"
+        app:layout_constraintStart_toStartOf="@+id/rv_list"
+        app:layout_constraintTop_toBottomOf="@id/rv_list" />
+
+    <SeekBar
+        android:id="@+id/sb_width"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:max="100"
+        android:progress="15"
+        app:layout_constraintEnd_toEndOf="@id/view_bg"
+        app:layout_constraintStart_toStartOf="@id/view_bg"
+        app:layout_constraintTop_toBottomOf="@id/tv_width" />
+
+
+    <TextView
+        android:id="@+id/tv_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="输出方式"
+        android:textColor="#333333"
+        app:layout_constraintStart_toStartOf="@+id/rv_list"
+        app:layout_constraintTop_toBottomOf="@+id/sb_width" />
+
+    <RadioGroup
+        android:id="@+id/rb_model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/view_bg"
+        app:layout_constraintTop_toBottomOf="@+id/tv_out">
+
+        <RadioButton
+            android:id="@+id/rb_draw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="绘制" />
+
+        <RadioButton
+            android:id="@+id/rb_esa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="橡皮" />
+
+    </RadioGroup>
+
+
+    <Space
+        android:id="@+id/last_space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rb_model" />
+
+
+    <TextView
+        android:id="@+id/tv_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:background="@drawable/brush_white_10"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="10dp"
+        android:text="确定"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@id/rb_model"
+        app:layout_constraintEnd_toEndOf="@id/view_bg"
+        app:layout_constraintTop_toTopOf="@id/rb_model" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

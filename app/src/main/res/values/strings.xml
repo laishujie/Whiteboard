@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Whiteboard</string>
+    <string name="message_hexinput">Enter a valid hex number.</string>
+    <string name="preview">Preview</string>
+    <string name="undo">撤销</string>
+    <string name="redo">返回</string>
+    <string name="pen">画笔</string>
+    <string name="reset">清空</string>
+    <string name="color">颜色</string>
+
 </resources>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="颜色选择"
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/id_settings_dialog_color_hue"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_weight="0"
+        android:background="#ff0000ff"
+        app:layout_constraintBottom_toTopOf="@id/id_settings_dialog_color_preview"
+        app:layout_constraintEnd_toStartOf="@id/id_settings_dialog_color_saturation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+
+    <View
+        android:id="@+id/id_settings_dialog_color_saturation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:background="#ffff0000"
+        app:layout_constraintBottom_toTopOf="@id/id_settings_dialog_color_preview"
+        app:layout_constraintEnd_toStartOf="@id/id_settings_dialog_color_alpha"
+        app:layout_constraintStart_toEndOf="@id/id_settings_dialog_color_hue"
+        app:layout_constraintTop_toTopOf="@id/id_settings_dialog_color_hue" />
+
+    <View
+        android:id="@+id/id_settings_dialog_color_alpha"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_weight="0"
+        android:background="#ff00ff00"
+        app:layout_constraintBottom_toTopOf="@id/id_settings_dialog_color_preview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/id_settings_dialog_color_saturation"
+        app:layout_constraintTop_toTopOf="@id/id_settings_dialog_color_hue" />
+
+    <!--
+
+        <TextView
+            android:id="@+id/id_settings_dialog_color_hex_prefix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0"
+            android:fontFamily="monospace"
+            android:text="#"
+            android:textAppearance="@style/text_item_row"
+            android:textColor="?android:attr/textColorSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/id_settings_dialog_color_saturation" />
+
+
+        <EditText
+            android:id="@+id/id_settings_dialog_color_hex"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0"
+            android:fontFamily="monospace"
+            android:inputType="textNoSuggestions"
+            android:privateImeOptions="nm"
+            app:layout_constraintStart_toEndOf="@id/id_settings_dialog_color_hex_prefix"
+            app:layout_constraintTop_toBottomOf="@id/id_settings_dialog_color_saturation" />
+    -->
+
+    <com.lai.whiteboard.widget.ColorView
+        android:id="@+id/id_settings_dialog_color_preview"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_ok"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="确定"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/id_settings_dialog_color_preview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/id_settings_dialog_color_preview" />
+</androidx.constraintlayout.widget.ConstraintLayout>

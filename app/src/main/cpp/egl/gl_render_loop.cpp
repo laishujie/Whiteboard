@@ -32,6 +32,8 @@ void GlLoopRender::SetSurface(jobject surface, JNIEnv *m_env) {
 }
 
 void GlLoopRender::InitDspWindow(JNIEnv *env) {
+    //LOGE("11111","m_surface_ref %p",m_surface_ref)
+
     if (m_surface_ref != nullptr) {
         // 初始化窗口
         m_native_window = ANativeWindow_fromSurface(env, m_surface_ref);
@@ -39,7 +41,6 @@ void GlLoopRender::InitDspWindow(JNIEnv *env) {
         // 绘制区域的宽高
         m_window_width = ANativeWindow_getWidth(m_native_window);
         m_window_height = ANativeWindow_getHeight(m_native_window);
-
         //设置宽高限制缓冲区中的像素数量
         ANativeWindow_setBuffersGeometry(m_native_window, m_window_width,
                                          m_window_height, WINDOW_FORMAT_RGBA_8888);

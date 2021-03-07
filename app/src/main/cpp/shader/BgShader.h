@@ -27,6 +27,10 @@ public:
     void genBgTexture(int drawWidth, int drawHeight);
 
     void glClearBg();
+
+    void testDraw1();
+    void testDraw2();
+
     GLuint m_ProgramObj;
     GLuint m_VertexShader;
     GLuint m_FragmentShader;
