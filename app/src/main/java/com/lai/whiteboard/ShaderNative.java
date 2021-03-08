@@ -26,6 +26,7 @@ public class ShaderNative {
 
     public static native void glSetPaintTexture(Bitmap defaultPaintTexture, boolean isTextureRotate, float width, int outType);
 
+
     public static native void glDrawData(float[] drawPoint,
                                          int vertexCount,
                                          Bitmap defaultPaintTexture,

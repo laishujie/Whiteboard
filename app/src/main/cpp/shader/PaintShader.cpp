@@ -174,11 +174,12 @@ void PaintShader::glUpdatePoints(float *points, int vertexCount, float rotate, b
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
-    glvao->setVertex2D(paintVbo, points, vertexCount, 0);
-    defaultVertexCount = vertexCount;
+    if(points!= nullptr){
+        glvao->setVertex2D(paintVbo, points, vertexCount, 0);
+        defaultVertexCount = vertexCount;
 
-
-    draw();
+        draw();
+    }
 }
 
 void PaintShader::glClearPaint() {

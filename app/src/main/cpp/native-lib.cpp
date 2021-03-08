@@ -13,8 +13,6 @@ WhiteboardEngine *whiteboardEngine = nullptr;
 TextureImageDemo *bgShader = nullptr;
 
 
-
-
 ImageInfo *bitmapToImageInfo(JNIEnv *env, jobject &bitmap) {
     AndroidBitmapInfo info; // create a AndroidBitmapInfo
     int result;
@@ -28,7 +26,7 @@ ImageInfo *bitmapToImageInfo(JNIEnv *env, jobject &bitmap) {
     unsigned char *data;
     result = AndroidBitmap_lockPixels(env, bitmap, reinterpret_cast<void **>(&data));
     if (result != ANDROID_BITMAP_RESULT_SUCCESS) {
-        LOGCATE( "AndroidBitmap_lockPixels failed, result: %d", result);
+        LOGCATE("AndroidBitmap_lockPixels failed, result: %d", result);
         return nullptr;
     }
     size_t count = info.stride * info.height;
@@ -141,7 +139,8 @@ Java_com_lai_whiteboard_ShaderNative_glDrawData(JNIEnv *env, jclass instance, jf
             setOutType = BrushInfo::OutType::DRAW;
             break;
     }
-    jfloat *pDouble = env->GetFloatArrayElements(point, nullptr);
+
+    jfloat *pDouble = point == nullptr ? nullptr : env->GetFloatArrayElements(point, nullptr);
 
     //不等于空说明需要重新设置纹理图片
     if (bitmap != nullptr) {

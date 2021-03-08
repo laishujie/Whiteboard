@@ -115,7 +115,7 @@ void WhiteboardEngine::glSetPaintTexture(ImageInfo *brushImageInfo, float brushW
         paintShader->glSetBrush(brushImageInfo, brushWidth, isTextureRotate, outType);
     } else {
         //需要在gl线程渲染
-        requestRendering([=] {
+        noRequestRendering([=] {
             paintShader->glSetBrush(brushImageInfo, brushWidth, isTextureRotate, outType);
             glDisplay();
         }, false);

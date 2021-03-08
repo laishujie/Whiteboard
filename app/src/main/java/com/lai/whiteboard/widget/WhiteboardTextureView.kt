@@ -12,7 +12,6 @@ import com.lai.whiteboard.pen.IPen
 import com.lai.whiteboard.pen.TexturePen
 import com.lai.whiteboard.pen.page.BrushInfoConfig
 import com.lai.whiteboard.pen.page.BrushManager
-import com.lai.whiteboard.pen.page.BrushRes
 import com.lai.whiteboard.pen.page.WhiteboardActivity
 import java.util.*
 import kotlin.math.atan2
@@ -301,6 +300,25 @@ class WhiteboardTextureView : TextureView {
             isClear,
             isDisplay
         )
+        if (isDisplay) {
+            //恢复当前配置
+            mCurrBrushConfig?.let { mCurrBrushConfig ->
+                val a1 = Color.alpha(mCurrBrushConfig.currColorInt) * 1f / 255f
+                val r1 = Color.red(mCurrBrushConfig.currColorInt) * 1f / 255f
+                val g1 = Color.green(mCurrBrushConfig.currColorInt) * 1f / 255f
+                val b1 = Color.blue(mCurrBrushConfig.currColorInt) * 1f / 255f
+                val isRotate1 = mCurrBrushConfig.res?.isRotate ?: true
+                ShaderNative.glDrawData(
+                    null,
+                    0,
+                    BrushManager.getBrushBitmap(resources, mCurrBrushConfig.res),
+                    mCurrBrushConfig.brushWidth,
+                    mCurrBrushConfig.outType, isRotate1, a1, r1, g1, b1,
+                    false,
+                    isDisplay
+                )
+            }
+        }
     }
 
     /**
