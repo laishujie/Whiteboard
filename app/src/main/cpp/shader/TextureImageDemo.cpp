@@ -178,7 +178,7 @@ void TextureImageDemo::change(float x, float y, float z) {
     transform = glm::scale(transform, glm::vec3(1.0f, aspect_ratio, 1.0f));
     glm::mat4 Projection = glm::ortho(-1.0f, 1.0f, -aspect_ratio,aspect_ratio, 0.1f, 0.0f)* transform;*/
 
-    float aspect_ratio = (float)surfaceWidth / surfaceWidth;
+    float aspect_ratio = (float)surfaceHeight / surfaceWidth;
     /*glm::mat4 projection;
     projection = glm::perspective(45.0f, (GLfloat) surfaceWidth / (GLfloat) surfaceHeight, 0.1f,
                                   100.0f);*/
