@@ -6,6 +6,9 @@ apk 在release目录下
 
 绘制涂鸦项目，采用opengl es 3.0 + ndk 完成
 
+看不见截图和下载不了的话，去码云 <a href="https://gitee.com/LaiShuJie/Whiteboard">Whiteboard</a>
+
+
  ## 应用截图
  
  <p align="center">
