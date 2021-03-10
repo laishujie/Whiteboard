@@ -10,7 +10,7 @@ apk 在release目录下
  
  <p align="center">
 
-<img src="https://github.com/laishujie/Whiteboard/blob/master/app/screenshot/pager.png" width="460"/>
+<img src="https://github.com/laishujie/Whiteboard/raw/master/app/screenshot/pager.png" width="460"/>
 
 </p>
 
